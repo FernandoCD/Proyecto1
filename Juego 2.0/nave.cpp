@@ -1,11 +1,15 @@
 #include "nave.h"
 #include "espacio.h"
+#include "disparos.h"
+#include <vector>
 
 #define ARRIBA 72
 #define ABAJO 80
 #define DERECHA 77
 #define IZQUIERDA 75
 
+vector<Disparos *> d;
+vector<Disparos *>::iterator it;
 
 Nave::Nave(int x1, int y1){
 	x = x1;
@@ -37,13 +41,15 @@ void Nave::mover(){
 }
 
 void Nave::disparar(){
+	
 	if(kbhit()){
 		char tecla = getch();
-		borrar();
-		if(tecla == 'e')
-			
-		dibujar();
+		if(tecla == 'e'){
+			d.push_back(new Disparos(x + 1, y - 1));
+		}
 	}
+	for(it = d.begin(); it != d.end(); ++it)
+		(*it) -> disp();
 }
 
 void Nave::borrar(){

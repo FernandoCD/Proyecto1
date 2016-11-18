@@ -16,22 +16,15 @@ int main() {
 	bool GameOver = false;
 	
 	Enemigo a(5,5);
-	Enemigo b(10,5);
-	Enemigo c(15,5);
+	Enemigo b(15,5);
+	Enemigo c(25,5);
 	
 	a.dibujar();
 	b.dibujar();
 	c.dibujar();
 	
 	
-	Nave p(10, 10);
-	
-	vector<Enemigo> en;
-	
-	
-	en.push_back(a);
-	en.push_back(b);
-	en.push_back(c);
+	Nave p(35, 25);
 	
 	p.dibujar();
 	
@@ -39,14 +32,15 @@ int main() {
 
 	while(!GameOver){
 		cursor();
+		p.disparar();
 		p.mover();
 		p.dib_cora();
 		p.morir();
 		a.mover();
-		b.mover();
-		c.mover();
+//		b.mover();
+//		c.mover();
 		
-		Sleep(50);
+		Sleep(100);
 	}
 	
 	return 0;

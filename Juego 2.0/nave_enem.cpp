@@ -22,7 +22,13 @@ void Enemigo::dibujar(){
 
 void Enemigo::mover(){
 	borrar();
+	if (y != 10){
 		y++;
+	}
+	else{
+		if(vidas_e != 0)
+			mover();
+	}
 	dibujar();
 }
 
