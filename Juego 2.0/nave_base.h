@@ -2,6 +2,7 @@
 #define NAVE_BASE_H
 
 #include "objeto.h"
+#include "disparos.h"
 
 class Nave_base : public objeto {
 public:
@@ -10,6 +11,7 @@ public:
 	virtual void borrar() = 0;
 	virtual void morir() = 0;
 	virtual void disparar() = 0;
+	virtual void colision() = 0;
 };
 
 #endif

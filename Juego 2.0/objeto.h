@@ -1,6 +1,11 @@
 #ifndef OBJETO_H
 #define OBJETO_H
 
+#include <iostream>
+#include <windows.h>
+#include <conio.h>
+using namespace std;
+
 class objeto{
 public:
 	void got(int x1, int y1){

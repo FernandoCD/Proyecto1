@@ -1,19 +1,16 @@
 #ifndef DISPAROS_H
 #define DISPAROS_H
 
-class Disparos:public objeto{
+#include "objeto.h"
+
+class Disparos : public objeto{
 private:
 	int x, y;
 public:
-	Disparos(int x1, int y1) : x(x1),y(y1){}
+	Disparos(const int x1, const int y1);
 	
-	void disp(){
-		got(x, y);
-		cout << " ";
-		if(y > 5)
-			y--;
-		got(x, y);
-		cout << 'x';
-	}	
+	int getx(){return x;}
+	int gety(){return y;}
+	void disp(int a);
 };
 #endif
