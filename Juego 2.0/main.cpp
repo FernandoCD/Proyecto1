@@ -1,33 +1,45 @@
 #include "nave.h"
 #include "nave_enem.h"
 #include "espacio.h"
+#include "mediator.h"
+#include <map>
 
 	
 int main() {
 	
-	bool GameOver = false;
+	Nave p(20, 34);
+	p.dibujar();
 	
 	Enemigo a;
-	Enemigo b;
-	
-	Nave p(20, 34);
 	Espacio s;
+	Mediator m;
 	
-	p.dibujar();
+	bool GameOver = p.get_estado();
 	
 	while(!GameOver){
 		
-/*		s.cons();*/
+		s.cons(p);
+		m.colision(p, a);
 		
 		p.disparar();
 		p.mover();
-		p.dib_vid();
 		
 		a.disparar();
 		a.mover();
 		
-		Sleep(180);
+		Sleep(150);
+		
+		GameOver = p.get_estado();
 	}
+	
+	system("cls");
+	
+	
+	map<string, int> Punt;
+	
+	cout << "Ingresa tu Nombre: ";
+	string nombre;
+	cin >> nombre;
 	
 	return 0;
 }

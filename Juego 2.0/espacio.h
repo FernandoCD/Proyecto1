@@ -25,14 +25,16 @@ public:
 		}
 	}
 	
-	void cons(){
+	void cons(Nave &w){
 		vector<Fondo *>::iterator it_f;
 		
 		if(c.size() != 25)
 			c.push_back(new Fondo());
 		
-		for(it_f = c.begin(); it_f != c.end(); ++it_f)
+		for(it_f = c.begin(); it_f != c.end(); ++it_f){
 			(*it_f) -> const_f();
+		}
+/*		w.dibujar();*/
 		
 	}
 };

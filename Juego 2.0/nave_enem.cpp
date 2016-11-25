@@ -11,6 +11,7 @@ Enemigo::Enemigo(){
 	x = POS_X;
 	y = POS_Y;
 	vidas_e = 1;
+	puntaje = 0;
 }
 
 void Enemigo::dibujar(){
@@ -20,26 +21,42 @@ void Enemigo::dibujar(){
 	cout << '<' << 'O' << '>';
 	got(x, y+2);
 	cout << " " << 'T' << " ";
+	
+	got(2, 2);
+	cout << "Puntaje: " << puntaje;
 }
 
 void Enemigo::mover(){
-	borrar();
-	y++;
-	if(y > 37 && POS_Y > 37){
-		x = rand()%33 + 4;
+	if(vidas_e > 0){
+		borrar();
+		y++;
+		if(y > 37 && POS_Y > 37){
+			x = rand()%33 + 4;
+			y = 5;
+			POS_X = x;
+			POS_Y = 5;
+		}
+		dibujar();
+	}
+	else{
 		y = 5;
+		x = rand()%33 + 4;
 		POS_X = x;
 		POS_Y = 5;
+		vidas_e++;
+		puntaje+=100;
 	}
-	dibujar();
 }
 
 void Enemigo::disparar(){
-	for(int i = 0; i < 2; i++){
-		if(POS_Y < 39){
-			Disparos c(POS_X + 1 , POS_Y);
-			c.disp(1);
-			POS_Y++;
+	if (vidas_e > 0){
+		c.modx(POS_X + 1);
+		c.mody(POS_Y);
+		for(int i = 0; i < 2; i++){
+			if(POS_Y < 39){
+				c.disp(1);
+				POS_Y++;
+			}
 		}
 	}
 }
@@ -54,17 +71,17 @@ void Enemigo::borrar(){
 }
 
 void Enemigo::morir(){
-	if(vidas_e == 0){
+	if(vidas_e > 0){
 		got(x, y);
 		cout << " " << "." << " ";
 		got(x, y+1);
 		cout << "." << "." << ".";
 		got(x, y+2);
 		cout << " " << '.' << " ";
+		Sleep(150);
+		
+		borrar();
+		vidas_e--;
 	}
-}
-
-void Enemigo::colision(/*Enemigo &a*/){
-
 }
 

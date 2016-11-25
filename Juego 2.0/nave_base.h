@@ -11,7 +11,6 @@ public:
 	virtual void borrar() = 0;
 	virtual void morir() = 0;
 	virtual void disparar() = 0;
-	virtual void colision() = 0;
 };
 
 #endif

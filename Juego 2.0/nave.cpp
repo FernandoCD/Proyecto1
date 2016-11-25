@@ -10,6 +10,7 @@ Nave::Nave(int x1, int y1){
 	x = x1;
 	y = y1;
 	vidas = 3;
+	GameOver_1 = false;
 }
 
 void Nave::dibujar(){
@@ -19,10 +20,12 @@ void Nave::dibujar(){
 	cout << '/' << '-' << '\\';
 	got(x, y+2);
 	cout << '/' << '|' << "\\";
+	dib_vid();
 }
 
 void Nave::mover(){
 	if(vidas == 0){
+		GameOver_1 = true;
 		got(2,2);
 		cout << "Game Over";
 	}
@@ -42,14 +45,18 @@ void Nave::mover(){
 }
 
 void Nave::disparar(){
-	vector<Disparos *>::iterator it;
+	list<Disparos *>::iterator it;
 	if(kbhit()){
 		char tecla = getch();
-		if(tecla == 'e' && vidas != 0)
+		if(tecla == 'e' && vidas != 0){
 			d.push_back(new Disparos(x + 1, y - 1));
+		}
+		if(tecla == 32)
+			getch();
 	}
-	for(it = d.begin(); it != d.end(); ++it)
+	for(it = d.begin(); it != d.end(); ++it){
 		(*it) -> disp(2);
+	}
 }
 
 void Nave::borrar(){
@@ -95,11 +102,4 @@ void Nave::dib_vid(){
 	cout << vidas;
 }
 
-void Nave::colision(/*Enemigo &a*/){
-	if(x == 400){
-		morir();
-		dibujar();
-		dib_vid();
-	}
-}
 

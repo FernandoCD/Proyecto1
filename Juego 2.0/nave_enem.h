@@ -10,17 +10,22 @@ private:
 	int x, y, vidas_e;
 	int POS_X;
 	int POS_Y;
+	Disparos c;
+	int puntaje;
 public:
 	Enemigo();
 	
-	int get_X(){return POS_X;}
-	int get_Y(){return POS_Y;}
+	Disparos get_disp(){return c;}
+	int get_y(){return y;}
+	int get_x(){return x;}
+	int get_pun(){return puntaje;}
 	virtual void dibujar();
 	virtual void mover();
 	virtual void borrar();
 	virtual void morir();
 	virtual void disparar();
-	virtual void colision(/*Enemigo &a*/);
+	void colsion_e(){
+	}
 };
 
 #endif
