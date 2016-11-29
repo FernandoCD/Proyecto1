@@ -54,9 +54,17 @@ void Nave::disparar(){
 		if(tecla == 32)
 			getch();
 	}
-	for(it = d.begin(); it != d.end(); ++it){
+	for(it = d.begin(); it != d.end(); it++){
 		(*it) -> disp(2);
+		if((*it) -> gety() == 5){
+			got((*it)->getx(), (*it)->gety());
+			cout << " ";
+			delete *it;
+			it = d.erase(it);
+		}
 	}
+//	got(2,2);
+//	cout << d.size();
 }
 
 void Nave::borrar(){

@@ -2,10 +2,15 @@
 #include "nave_enem.h"
 #include "espacio.h"
 #include "mediator.h"
+#include <fstream>
 #include <map>
 
 	
 int main() {
+	
+	ofstream Ranking;
+	Ranking.open("Puntajes.txt",ios::out);
+	
 	
 	Nave p(20, 34);
 	p.dibujar();
@@ -37,9 +42,19 @@ int main() {
 	
 	map<string, int> Punt;
 	
+	int pun = a.get_pun();
+	
 	cout << "Ingresa tu Nombre: ";
 	string nombre;
 	cin >> nombre;
+	
+	Punt[nombre].push_back(pun);
+	
+	system("cls");
+	
+	cout << nombre << endl;
+	cout << "Puntaje:" << pun;
+	
 	
 	return 0;
 }

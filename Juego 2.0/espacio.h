@@ -34,7 +34,7 @@ public:
 		for(it_f = c.begin(); it_f != c.end(); ++it_f){
 			(*it_f) -> const_f();
 		}
-/*		w.dibujar();*/
+		w.dibujar();
 		
 	}
 };
