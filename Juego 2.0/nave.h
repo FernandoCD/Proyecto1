@@ -10,6 +10,7 @@ private:
 	list<Disparos *> d;
 	bool GameOver_1;
 public:
+	Nave();
 	Nave(int x1, int y1);
 	
 	bool get_estado(){return GameOver_1;}

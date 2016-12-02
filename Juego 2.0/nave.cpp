@@ -6,6 +6,13 @@
 #define DERECHA 77
 #define IZQUIERDA 75
 
+Nave::Nave(){
+	x = 20;
+	y = 34;
+	vidas = 3;
+	GameOver_1 = false;
+}
+
 Nave::Nave(int x1, int y1){
 	x = x1;
 	y = y1;
