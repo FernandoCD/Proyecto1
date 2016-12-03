@@ -42,8 +42,13 @@ public:
 			f.morir();
 		}
 		
-		if((f1.get_x() == f.get_x1() && f1.get_y() == f.get_y1())||
-		   (f1.get_x() == f.get_x1() && f1.get_y() == f.get_y1()-1)){
+		if((f1.get_x() == f.get_x1()+2 && f1.get_y()-1 == f.get_y1()-2)||
+		   (f1.get_x()+2 == f.get_x1() && f1.get_y()-1 == f.get_y1()-2)||
+		   
+		   (f1.get_x()+1 == f.get_x1() && f1.get_y() == f.get_y1()-2)||
+		   (f1.get_x()+1 == f.get_x1()+2 && f1.get_y() == f.get_y1()-2)||
+		   
+		   (f1.get_x()+1 == f.get_x1()+1 && f1.get_y() == f.get_y1()-3)){
 			
 			f.morir();
 			f1.morir();

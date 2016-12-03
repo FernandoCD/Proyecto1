@@ -16,12 +16,12 @@ public:
 	}
 
 	void mostrar(){
+		got(20, 1);
+		cout << "HIGH SCORES" << endl;
 		string n;
 		int p;
 		int i = 3;
 		Highscores >> n;
-		got(20, 1);
-		cout << "HIGH SCORES" << endl;
 		while(!Highscores.eof()){
 			Highscores >> p;
 			got(19, i);

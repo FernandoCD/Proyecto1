@@ -10,8 +10,6 @@
 #define ABAJO 80
 #define ENTER 13
 
-class Menu;
-
 class Selec : public objeto{
 private:
 	int x, y, p;
@@ -47,15 +45,17 @@ public:
 			if(tecla == ENTER){
 				if(y == 15){
 					system("cls");
-					Juego a;
+					Juego& a = Juego::Instancia();
 					p = a.juego_pun();
 					sel = true;
 				}
 				else{
 					system("cls");
 					a.mostrar();
+					got(8, 20);
+					cout << "Presiona Cualquier tecla para regresar" << endl;
 					getch();
-					sel = true;
+					system("cls");
 				}
 			}
 			dibujar();
@@ -77,7 +77,7 @@ public:
 
 class Menu : public objeto{
 public:
-	Menu(){
+	void Const_menu(){
 		got(4, 5);
 		cout << "   _______  ___  _______________ _________ " << endl;
 		got(4, 6);

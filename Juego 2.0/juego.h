@@ -7,13 +7,12 @@
 #include "mediator.h"
 
 
-class Juego{
+class Juego:public objeto{
 private:
 	Nave p;
 	Enemigo a;
 	Espacio s;
 	Mediator m;
-public:
 	Juego(){
 		p.dibujar();
 		
@@ -22,15 +21,19 @@ public:
 			s.cons(p);
 			m.colision(p, a);
 			
-			p.disparar();
-			p.mover();
-			
-			a.disparar();
-			a.mover();
+			p.ejecutar();
+			a.ejecutar();
 			
 			Sleep(150);
 			GameOver = p.get_estado();
 		}
+	}
+
+public:
+/*	Singleton*/
+	static Juego& Instancia(){
+		static Juego un;
+		return un;
 	}
 	
 	int juego_pun(){

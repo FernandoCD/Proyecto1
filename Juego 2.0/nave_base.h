@@ -11,6 +11,12 @@ public:
 	virtual void borrar() = 0;
 	virtual void morir() = 0;
 	virtual void disparar() = 0;
+	
+/*	Template Method*/
+	void ejecutar(){
+		disparar();
+		mover();
+	};
 };
 
 #endif
