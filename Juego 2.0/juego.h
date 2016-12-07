@@ -13,6 +13,7 @@ private:
 	Enemigo a;
 	Espacio s;
 	Mediator m;
+public:
 	Juego(){
 		p.dibujar();
 		

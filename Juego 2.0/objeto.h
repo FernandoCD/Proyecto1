@@ -8,7 +8,7 @@ using namespace std;
 
 class objeto{
 public:
-	virtual void got(int x1, int y1){
+	void got(int x1, int y1){
 		HANDLE hd;
 		hd = GetStdHandle(STD_OUTPUT_HANDLE);
 		

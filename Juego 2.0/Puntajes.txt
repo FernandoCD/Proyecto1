@@ -1,3 +1,6 @@
 Fernando 700
-Fernando 600
+Dea 1200
+
+Dea 400
+Mic 300
 Fernando 400

@@ -1,6 +1,6 @@
 #include "menu.h"
 #include "juego.h"
-#include <map>
+
 
 int main() {
 	
@@ -11,28 +11,27 @@ int main() {
 	bool term = s.ter_sel();
 	while(!term){
 		s.seleccionar();
-		term = s.ter_sel();
 		if(term != true){
 			m.Const_menu();
 			Sleep(60);
 		}
+		term = s.ter_sel();
 	}
 	
 	system("cls");
 
 	int pun = s.get_p();
+	Puntuacion a = s.get_punt();
+	
 	cout << "Ingresa tu Nombre: ";
 	string nombre;
 	cin >> nombre;
 	
-	s.get_punt().guardar(nombre, pun);
-	
+	a.guardar(nombre, pun);
 	system("cls");
-	
-	cout << nombre << endl;
-	cout << "Puntaje:" << pun;
-	
-	
+	a.mostrar();
+	getch();
 	
 	return 0;
 }
+

@@ -45,8 +45,8 @@ public:
 			if(tecla == ENTER){
 				if(y == 15){
 					system("cls");
-					Juego& a = Juego::Instancia();
-					p = a.juego_pun();
+					Juego& j = Juego::Instancia();
+					p = j.juego_pun();
 					sel = true;
 				}
 				else{
